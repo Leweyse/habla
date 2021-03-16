@@ -1,0 +1,15 @@
+$bg-color: #000000;
+$contrast-color: #adadad;
+
+$primary-color: #000000;
+$secondary-color: #363535;
+$tertiary-color: #707070;
+$quaternary-color: #b3b3b3;
+$quinary-color: #fff;
+
+@mixin gradient($direction, $list) {
+  background: -webkit-linear-gradient($direction, $list);
+  background: -moz-linear-gradient($direction, $list);
+  background: -o-linear-gradient($direction, $list);
+  background: linear-gradient($direction, $list);
+}

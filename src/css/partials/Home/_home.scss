@@ -1,0 +1,59 @@
+.home_body {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .home__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    background: $primary-color;
+    filter: contrast(1);
+    z-index: -1111;
+    overflow: hidden;
+
+    .home__bg--box {
+      position: fixed;
+      display: inline-block;
+      width: 150px;
+      height: 150px;
+      pointer-events: none;
+      background: $quinary-color;
+      mix-blend-mode: difference;
+      border-radius: 50%;
+    }
+  }
+
+  .home__nameProject {
+    float: right;
+    margin-top: 50vh;
+    margin-bottom: -3rem;
+    margin-right: 2rem;
+    font-family: 'geomanistitalic';
+    font-size: 13rem;
+    color: $quinary-color;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    letter-spacing: -1.5rem;
+  }
+
+  .home__floor {
+    width: 100%;
+    height: 0.2rem;
+    background-color: $quinary-color;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    display: inherit;
+    unicode-bidi: normal;
+    overflow: hidden;
+    border-style: hidden;
+    border-width: 1px;
+  }
+}

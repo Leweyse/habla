@@ -1,0 +1,91 @@
+.navBar_body {
+  width: 95vw;
+  height: 21rem;
+  position: absolute;
+  font-family: serif;
+  text-decoration: none;
+  flex-direction: row;
+  background-color: transparent;
+  margin: 2rem;
+  overflow: hidden;
+  cursor: default;
+
+  .navBar__container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-box-align: center;
+
+    .navBar__container--brand,
+    .navBar__container--about,
+    .navBar__container--menu,
+    .navBar--menu__item {
+      background-color: transparent;
+      padding: 1rem;
+
+      a {
+        text-decoration: none;
+        color: $quinary-color;
+        mix-blend-mode: difference;
+      }
+    }
+
+    .navBar__container--brand {
+      float: left;
+      font-size: 1.7rem;
+      letter-spacing: -0.2rem;
+
+      a {
+        font-family: serif;
+      }
+    }
+
+    .navBar__container--about {
+      position: absolute;
+      height: 7rem;
+      margin-top: 12rem;
+      font-size: 1.1rem;
+      font-family: 'geomanistregular';
+
+      a {
+        display: flex;
+        flex-direction: column;
+
+        span {
+          height: 1.4rem;
+          text-align: center;
+        }
+      }
+    }
+
+    .navBar__container--menu {
+      float: right;
+      margin-top: -0.36rem;
+      margin-bottom: 0;
+      position: relative;
+      font-family: 'geomanistregular';
+      font-size: 1.3rem;
+      letter-spacing: -0.07rem;
+
+      .navBar--menu__item {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0.7rem;
+        text-align: center;
+        color: $quinary-color;
+
+        a {
+          text-decoration: none;
+          cursor: pointer;
+
+          .navBar--body__item--separator {
+            display: inline-block;
+            width: 0.05rem;
+            height: 1rem;
+            background-color: $quinary-color;
+            color: $quinary-color;
+          }
+        }
+      }
+    }
+  }
+}
