@@ -3,31 +3,25 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const User = require('../models/User');
 
-// Local Strategy
 passport.use(new LocalStrategy({
     usernameField: 'userName',
     passwordField: 'password'
 }, async (userName, password, done) => {
-    // Match Email's user
-    const user = await User.findOne({ userName })
 
+    // Match Email's user
+    const user = await User.findOne({userName})
     if (!user) {
-        return done(null, false, { message: 'Not user found!' });
+        return done(null, false, { message: 'Not user found!'});
     } else {
         //Match Password's User
-        const match = await bcrypt.compare(password, this.password);
-
+        const match = await user.matchPassword(password);
         if (match) {
             return done(null, user);
         } else {
-            return done(null, false, { message: 'Password not matched!' })
+            return done(null, false, {message: 'Incorrect Password!'})
         }
     }
 }));
-
-// user.login(password).then(() => {
-//    return done(null, user)
-// })
 
 // Save Session
 passport.serializeUser((user, done) => {

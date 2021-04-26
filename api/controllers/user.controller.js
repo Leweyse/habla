@@ -19,7 +19,7 @@ userCtrl.signUp = async (req, res) => {
     if (user) {
         errors.push({text: 'The "userName" is already in use.'});
         console.log(errors);
-        res.redirect('/signup');
+        res.redirect('/signUp');
     } else {
         const userSignedUp = new User({
             fullName: fullName,
@@ -43,15 +43,14 @@ userCtrl.signUp = async (req, res) => {
 }
 
 userCtrl.signIn = passport.authenticate('local', {
-    failureRedirect: '/signin',
-    successRedirect: '/',
-    failureFlash: true
+    failureRedirect: '/signIn',
+    successRedirect: '/'
 });
 
-userCtrl.signOut = (req, res) => {
-    req.logout();
-    res.redirect('/signin');
-}
+// userCtrl.signOut = (req, res) => {
+//     req.logout();
+//     res.redirect('/signIn');
+// }
 
 // userCtrl.login = (req, res) => {
 //   // Token

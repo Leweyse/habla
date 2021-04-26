@@ -1,5 +1,17 @@
 @import 'partials/config';
+@import 'partials/fonts/font';
 @import 'partials/Home/home';
 @import 'partials/NavBar/navBar';
 @import 'partials/Sign/signUp';
 @import 'partials/Sign/signIn';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'geomanistregular', sans-serif;
+  font-display: swap;
+}
+
+li {
+  list-style: none;
+}

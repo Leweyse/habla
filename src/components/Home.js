@@ -5,21 +5,19 @@ import { useSpring, animated, config } from 'react-spring'
 function HomeBgBox() {
     const props = useSpring({
         from: {
-            left: Math.floor(Math.random() * 90) + 'vw',
-            top: Math.floor(Math.random() * 80) + 'vh'
+            left: Math.floor(Math.random() * 80) + 'vw',
+            top: Math.floor(Math.random() * 60) + 'vh'
         },
         to: async next => {
             while (1) {
                 await next({
-                    left: Math.floor(Math.random() * 90) + 'vw',
-                    top:  Math.floor(Math.random() * 80) + 'vh'
+                    left: Math.floor(Math.random() * 80) + 'vw',
+                    top:  Math.floor(Math.random() * 60) + 'vh'
                 })
             }
         },
         config:  {
-            mass: 1,
-            tension: 170,
-            friction: 26
+            mass: 10
         }
     })
 

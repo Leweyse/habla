@@ -8,27 +8,28 @@ import {
   useHistory,
   useLocation
 } from "react-router-dom";
+import { CSSTransition } from 'react-transition-group';
 
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import About from './components/About';
-import SignUp from './components/SignUp';
-// import Login from './components/SignIn';
 import Logout from './components/Logout';
 
 import './css/App.css';
+
+// <Route path='/signup' component={SignUp}/>
 
 class App extends Component {
     render() {
         const App = () => (
             <div>
                 <NavBar />
-                <Switch>
-                    <Route exact path='/' component={Home}/>
-                    <Route path='/signup' component={SignUp}/>
-                    
-                    <Route path="/logout" component={Logout} />
-                </Switch>
+                <div className="page">
+                    <Switch>
+                        <Route exact path='/' component={Home}/>
+                        <Route path="/about" component={About} />
+                    </Switch>
+                </div>
             </div>
         )
         return (

@@ -1,70 +1,76 @@
-import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
-import isAuthenticated from '../lib/isAuthenticated'
+import React, { Component } from 'react';
+import axios from 'axios';
 
-class Login extends Component {
+class SignIn extends Component {
+    constructor() {
+        super()
+        this.state = {
+            userName: '',
+            password: ''
+        }
 
-  constructor(props) {
-    super(props)
+        this.changeUserName = this.changeUserName.bind(this)
+        this.changePassword = this.changePassword.bind(this)
 
-    this.state = {
-      loggedin: isAuthenticated()
+        this.onSubmit = this.onSubmit.bind(this)
     }
-  }
 
-  submit(e) {
-    e.preventDefault()
-    e.stopPropagation()
-
-    let form = e.target
-    let formData = new FormData(form)
-    let params = new URLSearchParams(formData)
-
-    // Send request to the server
-    fetch('/api/login', {
-      method: 'POST',
-      body: params
-    }).then( (res) => {
-      return res.json()
-    }).then(data => {
-      localStorage.setItem('token', data.token)
-      this.setState({loggedin: true})
-    }).catch( (err) => {
-      console.error(err)
-    })
-  }
-
-  render() {
-    if ( this.state.loggedin ) {
-      return (
-        <Redirect
-          to={{
-            pathname: '/',
-            state: { from: this.props.location }
-          }}
-        />
-      )
-    } else {
-      return (
-        <div className="signIn__body">
-          <h1>Login</h1>
-          <form onSubmit={this.submit.bind(this)}>
-            <div>
-              <label>Username: </label>
-              <input type="text" name="username" pattern=".{2,16}" required />
-            </div>
-            <div>
-              <label>Password: </label>
-              <input type="password" name="password" pattern=".{6,20}" required />
-            </div>
-            <div>
-              <input type="submit" value="Log in" />
-            </div>
-          </form>
-        </div>
-      )
+    changeUserName(event) {
+        this.setState({
+            userName: event.target.value
+        })
     }
-  }
+
+    changePassword(event) {
+        this.setState({
+            password: event.target.value
+        })
+    }
+
+    onSubmit(event) {
+        event.preventDefault()
+
+        const loged = {
+            userName: this.state.userName,
+            password: this.state.password
+        }
+
+        axios.post('http://localhost:5000/api/signIn', loged)
+          .then(res => console.log(res.data))
+
+        this.setState({
+            userName: '',
+            password: ''
+        })
+    }
+
+    render() {
+        return (
+            <div className='signIn__body'>
+                <form className='signIn_form' onSubmit={this.onSubmit}>
+                    <input
+                        className='signIn_input--userName'
+                        type='text'
+                        placeholder='User Name'
+                        onChange={this.changeUserName}
+                        value={this.state.userName}
+                    />
+                    <input
+                        className='signIn_input--password'
+                        type='password'
+                        placeholder='Password'
+                        onChange={this.changePassword}
+                        value={this.state.password}
+                    />
+                    <input
+                        className='signIn_input--submitBtn'
+                        type='submit'
+                        value='Submit'
+                    />
+                </form>
+            </div>
+        );
+    }
 }
 
-export default Login
+export default SignIn

@@ -19,7 +19,7 @@
     .navBar__container--about,
     .navBar__container--menu,
     .navBar--menu__item {
-      background-color: transparent;
+      background: none;
       padding: 1rem;
 
       a {
@@ -31,8 +31,7 @@
 
     .navBar__container--brand {
       float: left;
-      font-size: 1.7rem;
-      letter-spacing: -0.2rem;
+      font-size: 2rem;
 
       a {
         font-family: serif;
@@ -41,9 +40,9 @@
 
     .navBar__container--about {
       position: absolute;
-      height: 7rem;
-      margin-top: 12rem;
-      font-size: 1.1rem;
+      width: 7rem;
+      top: 11rem;
+      font-size: 1.15rem;
       font-family: 'geomanistregular';
 
       a {
@@ -53,6 +52,14 @@
         span {
           height: 1.4rem;
           text-align: center;
+        }
+
+        span:nth-child(1) {
+          padding-top: 1rem;
+        }
+
+        span:nth-child(5) {
+          padding-bottom: 1rem;
         }
       }
     }
@@ -64,12 +71,11 @@
       position: relative;
       font-family: 'geomanistregular';
       font-size: 1.3rem;
-      letter-spacing: -0.07rem;
 
       .navBar--menu__item {
         display: inline-block;
         vertical-align: middle;
-        padding: 0.7rem;
+        margin: 0.7rem;
         text-align: center;
         color: $quinary-color;
 

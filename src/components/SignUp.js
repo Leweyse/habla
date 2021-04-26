@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import axios from 'axios'
+import React, { Component, useState } from 'react';
+import axios from 'axios';
 
 class SignUp extends Component {
     constructor() {
@@ -65,33 +65,38 @@ class SignUp extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.onSubmit}>
+            <div className='signUp__body'>
+                <form className='signUp_form' onSubmit={this.onSubmit}>
                     <input
+                        className='signUp_input--fullName'
                         type='text'
                         placeholder='Full Name'
                         onChange={this.changeFullName}
                         value={this.state.fullName}
                     />
                     <input
+                        className='signUp_input--userName'
                         type='text'
                         placeholder='User Name'
                         onChange={this.changeUserName}
                         value={this.state.userName}
                     />
                     <input
+                        className='signUp_input--password'
                         type='password'
                         placeholder='Password'
                         onChange={this.changePassword}
                         value={this.state.password}
                     />
                     <input
+                        className='signUp_input--confirmPassword'
                         type='password'
                         placeholder='Confirm Password'
                         onChange={this.changeConfirmPassword}
                         value={this.state.confirmPassword}
                     />
                     <input
+                        className='signUp_input--submitBtn'
                         type='submit'
                         value='Submit'
                     />
