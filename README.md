@@ -1,5 +1,5 @@
-# HABLA
-"Habla" is a web application that aims to be a study tool that adapts to any personality.
+# PRATEN
+"Praten" is a web application that aims to be a study tool that adapts to any personality.
 
 ## TECHNOLOGIES USED
 * HTML
