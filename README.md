@@ -1,5 +1,5 @@
 # PRATEN
-"Praten" is a web application that aims to be a study tool that adapts to any personality.
+"Praten" is a Dutch language study tool that adapts to any personality. This web application is still under development. 
 
 ## TECHNOLOGIES USED
 * HTML
